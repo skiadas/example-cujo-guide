@@ -1,0 +1,36 @@
+{
+	"name": "example-cujo-guide",
+	"version": "0.0.1",
+	"description": "A guide to programming with cudoJS. https://github.com/skiadas/example-cujo-guide",
+	"keywords": ["modules", "ioc", "promises", "aop", "rest", "cujo", "cujojs", "guide", "walkthrough"],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/mit-license.php"
+		}
+	],
+	"repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/skiadas/example-cujo-guide"
+		}
+	],
+	"maintainers": [
+		{
+			"name": "Haris Skiadas",
+			"web": "https://github.com/skiadas"
+		}
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"serv": "0.0.x",
+		"bower": "0.9.x"
+	},
+	"scripts": {
+		"postinstall": "bower install",
+		"start": "serv --port 8000"
+	},
+	"ignore": [
+		"lib/"
+	]
+}

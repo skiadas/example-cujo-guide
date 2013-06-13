@@ -1,0 +1,16 @@
+{
+	"name": "example-cujo-guide",
+	"version": "0.0.1",
+	"dependencies": {
+		"curl": "~0.7",
+		"wire": "~0.9",
+		"cola": "~0.1",
+		"when": "~2",
+		"meld": "~1",
+		"poly": "~0.5",
+		"rest": "~0.9"
+	},
+	"ignore": [
+		"node_modules/"
+	]
+}
