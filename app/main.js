@@ -24,13 +24,23 @@ define({
 				text: true,
 				label: 'Click me!'
 			}
+		},
+		on: {
+			click: 'logging.logMe'
+		}
+	},
+	
+	textInput: {
+		element: { $ref: 'first!#autocomp' },
+		properties: {
+			value: 'Hello!'
 		}
 	},
 	
 	autocompleter: {
 		widget: {
 			type: 'autocomplete',
-			node: { $ref: 'dom.first!#autocomp' },
+			node: { $ref: 'textInput' },
 			options: {
 				source: ['John', 'Bill', 'Haris', 'Barb', 'Bob', 'Jack', 'Aardvark'],
 				minLength: 0
@@ -50,10 +60,22 @@ define({
 		}
 	},
     
+	logging: {
+		create: 'app/controllers/logging',
+		properties: {
+			message: 'Wire specs rock!'
+		},
+		on: {
+			sliding: {
+				'slidechange': 'newSliderNums'
+			}
+		}
+	},
+	
 	// Wire.js plugins
-	plugins: [
+	$plugins: [
 		{ module: 'wire/jquery/dom', classes: { init: 'loading' } },
 		{ module: 'wire/dom/render' },
-		'wire/jquery/ui'
+		'wire/jquery/ui', 'wire/jquery/on'
 	]
 });
