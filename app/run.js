@@ -2,9 +2,9 @@
 
 	var config = {
 		// baseUrl: '',
-		//paths: {
-			// Configure paths here
-		//},
+        paths: {
+            'jquery': 'lib/jquery/jquery.js'
+        },
 		packages: [
 			// Define application-level packages
 			{
@@ -24,7 +24,8 @@
 			{ name: 'cola', location: 'lib/cola', main: 'cola' },
 			{ name: 'when', location: 'lib/when', main: 'when' },
 			{ name: 'meld', location: 'lib/meld', main: 'meld' },
-			{ name: 'poly', location: 'lib/poly' }
+			{ name: 'poly', location: 'lib/poly' },
+			{ name: 'jqueryui', location: 'lib/jquery-ui/ui', main: 'jquery-ui' }
 		],
 		// Turn off i18n locale sniffing. Change or remove this line if you want
 		// to test specific locales or try automatic locale-sniffing.
@@ -35,7 +36,7 @@
 		//preloads: ['poly/array', 'poly/function', 'poly/json', 'poly/object', 'poly/string', 'poly/xhr']
 	};
 
-	curl(config, ['wire!app/main']).then(success, fail);
+	curl(config, ['js!jquery!order', 'js!jqueryui!order', 'wire!app/main']).then(success, fail);
 
 	// Success! curl.js indicates that your app loaded successfully!
 	function success () {
