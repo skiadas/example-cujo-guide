@@ -30,10 +30,25 @@ define({
 		}
 	},
 	
+	
+	
+	findItem: { module: 'app/common/transforms/findItemFromEvent' },
 	textInput: {
 		element: { $ref: 'first!#autocomp' },
 		properties: {
 			value: 'Hello!'
+		}
+	},
+
+	autocompleterList: {
+		create: {
+			module: 'app/common/stack',
+			args: [['John', 'Bill', 'Haris', 'Barb', 'Bob', 'Jack', 'Aardvark']]
+		},
+		on: {
+			textInput: {
+				change: 'findItem | pushIfNew'
+			}
 		}
 	},
 	
@@ -42,11 +57,14 @@ define({
 			type: 'autocomplete',
 			node: { $ref: 'textInput' },
 			options: {
-				source: ['John', 'Bill', 'Haris', 'Barb', 'Bob', 'Jack', 'Aardvark'],
+				source: { $ref: 'autocompleterList.values' },
 				minLength: 0
 			}
 		}
 	},
+
+
+
 
 	sliding: {
 		widget: {
