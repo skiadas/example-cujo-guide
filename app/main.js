@@ -32,7 +32,7 @@ define({
 	
 	
 	
-	findItem: { module: 'app/common/transforms/findItemFromEvent' },
+	findItem: { module: 'app/common/transform/findItemFromEvent' },
 	textInput: {
 		element: { $ref: 'first!#autocomp' },
 		properties: {
