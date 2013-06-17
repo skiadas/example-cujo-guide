@@ -31,7 +31,12 @@ define({
 	},
 	
 	
-	
+	flashNote: {
+		create: {
+			module: 'app/common/flashElement.js',
+			args: { $ref: 'first!#autocomp + span' }
+		}
+	},
 	findItem: { module: 'app/common/transform/findItemFromEvent' },
 	textInput: {
 		element: { $ref: 'first!#autocomp' },
@@ -49,6 +54,9 @@ define({
 			textInput: {
 				change: 'findItem | pushIfNew'
 			}
+		},
+		after: { 
+			push: 'flashNote'
 		}
 	},
 	
@@ -94,6 +102,7 @@ define({
 	$plugins: [
 		{ module: 'wire/jquery/dom', classes: { init: 'loading' } },
 		{ module: 'wire/dom/render' },
-		'wire/jquery/ui', 'wire/jquery/on'
+		'wire/jquery/ui', 'wire/jquery/on',
+		'wire/aop'
 	]
 });
