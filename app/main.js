@@ -30,11 +30,19 @@ define({
 		}
 	},
 	
-	
+	createNote: {
+		create: {
+			module: 'app/common/transform/verySimpleTemplate',
+			args: ['Added "$message" to the list!']
+		}
+	},
 	flashNote: {
 		create: {
-			module: 'app/common/flashElement.js',
-			args: { $ref: 'first!#autocomp + span' }
+			module: 'app/common/effect/flashMessage',
+			args: [
+				{ $ref: 'first!#autocomp' },
+				2000
+			]
 		}
 	},
 	findItem: { module: 'app/common/transform/findItemFromEvent' },
@@ -55,8 +63,8 @@ define({
 				change: 'findItem | pushIfNew'
 			}
 		},
-		after: { 
-			push: 'flashNote'
+		connect: {
+			push: 'createNote | flashNote.flash'
 		}
 	},
 	
@@ -103,6 +111,6 @@ define({
 		{ module: 'wire/jquery/dom', classes: { init: 'loading' } },
 		{ module: 'wire/dom/render' },
 		'wire/jquery/ui', 'wire/jquery/on',
-		'wire/aop'
+		'wire/aop', 'wire/connect'
 	]
 });
