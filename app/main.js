@@ -7,6 +7,20 @@ define({
 
 	// Create a simple view by rendering html, replacing some i18n strings
 	// and loading CSS.  Then, insert into the DOM
+	firstTempl: { module: 'app/common/templates/testHbs' },
+	secondTempl: { module: 'app/common/templates/testHbs2' },
+	myTemplateString: 'Hi {{name}} thrice!!',
+	thirdTempl: { $ref: 'hbs!myTemplateString' },
+	fourthTempl: { $ref: 'hbs!text!app/common/templates/templ.hbs' },
+	useThirdAndFourthTempl: {
+	    create: {
+	        module: 'app/common/templates/testHbs3',
+            args: [
+                { $ref: 'thirdTempl' },
+                { $ref: 'fourthTempl' }
+            ]
+	    },
+	},
 	message: {
 		render: {
 			template: { module: 'text!welcome/template.html' },
@@ -43,7 +57,7 @@ define({
 				{ $ref: 'first!#autocomp' },
 				2000
 			]
-		}
+		},
 	},
 	findItem: { module: 'app/common/transform/findItemFromEvent' },
 	textInput: {
@@ -111,6 +125,7 @@ define({
 		{ module: 'wire/jquery/dom', classes: { init: 'loading' } },
 		{ module: 'wire/dom/render' },
 		'wire/jquery/ui', 'wire/jquery/on',
-		'wire/aop', 'wire/connect'
+		'wire/aop', 'wire/connect',
+		'app/plugins/hbs'
 	]
 });

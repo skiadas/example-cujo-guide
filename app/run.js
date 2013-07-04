@@ -25,7 +25,8 @@
 			{ name: 'when', location: 'lib/when', main: 'when' },
 			{ name: 'meld', location: 'lib/meld', main: 'meld' },
 			{ name: 'poly', location: 'lib/poly' },
-			{ name: 'jqueryui', location: 'lib/jquery-ui/ui', main: 'jquery-ui' }
+			{ name: 'jqueryui', location: 'lib/jquery-ui/ui', main: 'jquery-ui' },
+			{ name: 'handlebars', location: 'lib/require-handlebars-plugin/', main: 'Handlebars' }
 		],
 		// Turn off i18n locale sniffing. Change or remove this line if you want
 		// to test specific locales or try automatic locale-sniffing.

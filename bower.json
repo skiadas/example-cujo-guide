@@ -10,7 +10,9 @@
 		"poly": "~0.5",
 		"rest": "~0.9",
 		"jquery": "~1.10",
-		"jquery-ui": "~1.10"
+		"jquery-ui": "~1.10",
+		"handlebars": "~1.0.0",
+		"require-handlebars-plugin": "~0.4.0"
 	},
 	"ignore": [
 		"node_modules/"
